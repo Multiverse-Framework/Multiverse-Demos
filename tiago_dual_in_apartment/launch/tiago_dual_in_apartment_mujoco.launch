@@ -1,0 +1,39 @@
+<launch>
+
+    <arg name="namespace" default="tiago_dual" />
+    <include file="$(find tiago_dual_mujoco)/launch/tiago_dual_mujoco.launch">
+        <arg name="namespace" value="$(arg namespace)" />
+        <arg name="config"
+            value="$(find tiago_dual_in_apartment)/config/tiago_dual_in_apartment.yaml" />
+        <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
+        <arg name="rviz_config" value="$(find tiago_dual_in_apartment)/rviz_config/rviz_config.rviz" />
+    </include>
+
+    <include file="$(find tiago_dual_control)/launch/tiago_dual_move_base.launch">
+        <arg name="namespace" value="$(arg namespace)" />
+        <arg name="navigation_map" default="$(find iai_apartment)/map/apartment.yaml" />
+    </include>
+
+    <arg name="model" default="$(find iai_apartment)/urdf/apartment.xacro" />
+    <param name="apartment_description" command="$(find xacro)/xacro '$(arg model)'" />
+
+    <node pkg="tf" type="static_transform_publisher" name="iai_apartment_room_link_broadcaster"
+        args="0 0 0 0 0 0 map iai_apartment/apartment_root 25"></node>
+
+    <node pkg="tf" type="static_transform_publisher" name="fake_localization"
+        args="0 0 0 0 0 0 map odom 25"></node>
+
+    <node name="apartment_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+        <remap from="robot_description" to="apartment_description" />
+        <remap from="joint_states" to="/mujoco/world_joint_states" />
+        <param name="tf_prefix" value="iai_apartment" />
+        <param name="publish_frequency" value="60" />
+    </node>    
+
+    <group ns="$(arg namespace)">
+        <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
+        <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller"
+            type="rqt_joint_trajectory_controller" />
+    </group>
+
+</launch>
