@@ -20,4 +20,5 @@ spawn_and_destroy_objects_rate: 60.0
 root_frame_id: map
 
 send:
-  ur5e: [joint_rvalue, joint_tvalue]
+  body: [position, quaternion]
+  joint: [joint_rvalue, joint_tvalue]
