@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find multiverse_server)/launch/multiverse_server.launch"/>
+
+    <include file="$(find multiverse_client)/launch/multiverse_socket.launch"/>
+
+</launch>
