@@ -1,7 +1,20 @@
 <launch>
+    
+    <arg name="delay" default="0"/>
 
-    <include file="$(find multiverse_server)/launch/multiverse_server.launch"/>
+    <arg name="multiverse_config" default="$(find ur5e_with_task_board)/config/multiverse_params.yaml" />
+    
+    <arg name="launch_prefix" default="bash -c 'sleep $(arg delay); $0 $@'"/>
+    
+    <node pkg="multiverse_server" type="multiverse_server" name="multiverse_server" output="screen"
+        args="7300 7400 7500 7501 7502 7503" launch-prefix="$(arg launch_prefix)"/>
 
-    <include file="$(find multiverse_client)/launch/multiverse_socket.launch"/>
+    <node pkg="multiverse_client" type="multiverse_service.py" name="multiverse_service"
+        output="screen" args="7400" launch-prefix="$(arg launch_prefix)"/>
+
+    <node pkg="multiverse_client" type="multiverse_publisher.py" name="multiverse_publisher"
+        output="screen" launch-prefix="$(arg launch_prefix)">
+        <rosparam command="load" file="$(arg multiverse_config)" />
+    </node>
 
 </launch>

@@ -1,0 +1,33 @@
+<launch>
+
+    <arg name="namespace" default="ur5e" />
+
+    <arg name="world" default="$(find work_table)/mjcf/work_table.xml" />
+
+    <arg name="mujoco_config" default="$(find ur5e_with_task_board)/config/mujoco_params.yaml" />
+
+    <arg name="multiverse_config"
+        default="$(find ur5e_with_task_board)/config/multiverse_params.yaml" />
+
+    <arg name="rviz_config" default="$(find ur5e_with_task_board)/rviz_config/rviz_config.rviz" />
+    <arg name="disable_parent_child_collision_level" default="1" />
+
+    <arg name="robot" default="$(find ur_description)/urdf/ur5e_with_gripper.urdf" />
+
+    <group ns="$(arg namespace)">
+        <node name="urdf_to_mjcf" pkg="multiverse_parser" type="urdf_to_mjcf" output="screen"
+            args="$(arg robot) $(arg disable_parent_child_collision_level)" />
+        <param name="robot_description" command="$(find xacro)/xacro '$(arg robot)'" />
+
+        <node name="mujoco_sim" pkg="mujoco_sim" type="mujoco_sim_node" output="screen"
+            launch-prefix="bash -c 'sleep 0.5; $0 $@' ">
+            <rosparam command="load" file="$(arg mujoco_config)" />
+            <rosparam command="load" file="$(arg multiverse_config)" />
+            <param name="world" value="$(arg world)" />
+            <param name="robot" type="str" value="$(arg robot)" />
+        </node>
+
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config)" />
+    </group>
+
+</launch>
