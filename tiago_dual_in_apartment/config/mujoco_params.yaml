@@ -1,8 +1,6 @@
 pose_init: 
   tiago_dual: [12.5, 2.5, 0.0, 0.0, 0.0, 3.1415]
 
-add_odom_joints: true
-
 spawn_and_destroy_objects_rate: 60.0
 
 root_frame_id: odom
