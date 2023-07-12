@@ -1,0 +1,14 @@
+pose_init: 
+  ur5e: [0, 0, 1, 0, 0, 0]
+
+joint_inits:
+  shoulder_lift_joint: -1.57
+
+spawn_and_destroy_objects_rate: 60.0
+
+root_frame_id: map
+
+multiverse:
+  send:
+    body: [position, quaternion]
+    joint: [joint_rvalue, joint_tvalue]
