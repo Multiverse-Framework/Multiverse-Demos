@@ -6,16 +6,9 @@ multiverse:
   handedness: rhs
   root_frame_id: map
 
-  send:
-    body: [position, quaternion]
-    joint: [joint_rvalue, joint_tvalue]
-
   publishers:
     tf:
       port: 7300
-      rate: 60
-    visualization_marker_array:
-      port: 7301
       rate: 60
 
   services:
