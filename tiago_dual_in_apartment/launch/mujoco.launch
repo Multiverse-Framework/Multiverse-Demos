@@ -4,39 +4,20 @@
         <arg name="config" value="$(find tiago_dual_in_apartment)/config/mujoco_params.yaml" />
         <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
         <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual.urdf" />
+        <arg name="disable_parent_child_collision_level" default="3"/>
         <arg name="use_urdf" value="true" />
     </include>
 
     <include file="$(find tiago_dual_control)/launch/tiago_dual_control.launch" />
 
-    <!-- <include file="$(find tiago_dual_control)/launch/tiago_dual_move_base.launch">
+    <param name="apartment_description"
+        command="$(find xacro)/xacro '$(find iai_apartment)/urdf/apartment.xacro'" />
+
+    <include file="$(find tiago_dual_control)/launch/tiago_dual_move_base.launch">
         <arg name="navigation_map" default="$(find iai_apartment)/map/apartment.yaml" />
-    </include> -->
+    </include>
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find tiago_dual_in_apartment)/rviz_config/rviz_config.rviz" />
-
-    <param name="apartment_description" command="$(find xacro)/xacro '$(find iai_apartment)/urdf/apartment.xacro'" />
-
-   
-
-    <!-- <node pkg="tf" type="static_transform_publisher" name="iai_apartment_room_link_broadcaster"
-        args="0 0 0 0 0 0 map iai_apartment/apartment_root 25"></node>
-
-    <node pkg="tf" type="static_transform_publisher" name="fake_localization"
-        args="0 0 0 0 0 0 map odom 25"></node>
-
-    
-    <node name="apartment_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
-        <remap from="robot_description" to="apartment_description" />
-        <remap from="joint_states" to="/mujoco/world_joint_states" />
-        <param name="tf_prefix" value="iai_apartment" />
-        <param name="publish_frequency" value="60" />
-    </node>    
-
-    <group ns="$(arg namespace)">
-        <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
-        <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller"
-            type="rqt_joint_trajectory_controller" />
-    </group> -->
+    <node name="rviz" pkg="rviz" type="rviz"
+        args="-d $(find tiago_dual_in_apartment)/rviz_config/rviz_config.rviz" />
 
 </launch>

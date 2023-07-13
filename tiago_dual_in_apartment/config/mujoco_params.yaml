@@ -1,9 +1,28 @@
 mujoco:
+  robots: [tiago_dual]
+
   pose_init: 
-    tiago_dual: [12.5, 2.5, 0.0, 0.0, 0.0, 3.1415]
+    tiago_dual: [12.5, 2.5, 0.0, 0.0, 0.0, 0.0]
 
   add_odom_joints: true
   
-  spawn_and_destroy_objects_rate: 0.0
+  spawn_and_destroy_objects_rate: 60.0
 
   root_frame_id: map
+
+  disable_gravity: true
+
+multiverse:
+  length_unit: m
+  angle_unit: rad
+  force_unit: N
+  time_unit: s
+  handedness: rhs
+  root_frame_id: map
+  
+  send:
+    body: ["position", "quaternion"]
+    joint: ["joint_rvalue", "joint_tvalue"]
+
+  receive:
+    tiago_dual: ["relative_velocity"]
