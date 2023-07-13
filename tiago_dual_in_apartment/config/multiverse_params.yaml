@@ -10,15 +10,19 @@ multiverse:
     body: [position, quaternion]
     joint: [joint_rvalue, joint_tvalue]
 
-  publish:
+  # receive:
+  #   tiago_dual: [relative_velocity]
+
+  services:
+    query_data:
+      port: 7400
+
+  publishers:
     tf:
       port: 7300
       rate: 60
-    visualization_marker_array:
-      port: 7301
-      rate: 60
 
-  subscribe:
+  subscribers:
     cmd_vel:
       port: 7200
-      
+      body: tiago_dual
