@@ -1,11 +1,14 @@
 <launch>
 
+    <arg name="socket_addr" default="tcp://127.0.0.1:7500"/>
+
     <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
         <arg name="config" value="$(find tiago_dual_in_apartment)/config/mujoco_params.yaml" />
         <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
         <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual.urdf" />
         <arg name="disable_parent_child_collision_level" default="3"/>
         <arg name="use_urdf" value="true" />
+        <arg name="socket_addr" value="(arg socket_addr)"/>
     </include>
 
     <include file="$(find tiago_dual_control)/launch/tiago_dual_control.launch" />

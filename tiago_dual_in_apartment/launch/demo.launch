@@ -1,6 +1,10 @@
 <launch>
 
-    <include file="$(find tiago_dual_in_apartment)/launch/mujoco.launch" />
+    <arg name="socket_addr" default="tcp://127.0.0.1:7500"/>
+
+    <include file="$(find tiago_dual_in_apartment)/launch/mujoco.launch" >
+        <arg name="socket_addr" value="(arg socket_addr)" />
+    </include>
 
     <include file="$(find tiago_dual_in_apartment)/launch/multiverse_socket.launch">
         <arg name="delay" value="1" />
