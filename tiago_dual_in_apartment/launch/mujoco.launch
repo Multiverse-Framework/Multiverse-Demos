@@ -17,7 +17,4 @@
         <arg name="navigation_map" default="$(find iai_apartment)/map/apartment.yaml" />
     </include>
 
-    <node name="rviz" pkg="rviz" type="rviz"
-        args="-d $(find tiago_dual_in_apartment)/rviz_config/rviz_config.rviz" />
-
 </launch>

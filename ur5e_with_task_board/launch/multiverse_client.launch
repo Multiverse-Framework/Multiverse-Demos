@@ -3,11 +3,11 @@
     <arg name="delay" default="0"/>
     
     <arg name="launch_prefix" default="bash -c 'sleep $(arg delay); $0 $@'"/>
-    
-    <include file="$(find multiverse_server)/launch/multiverse_server.launch"/>
 
-    <rosparam command="load" file="$(find tiago_dual_in_apartment)/config/multiverse_params.yaml" />
+    <rosparam command="load" file="$(find ur5e_with_task_board)/config/multiverse_params.yaml" />
     <node pkg="multiverse_client" type="multiverse_socket_node.py" name="multiverse_socket"
         output="screen" launch-prefix="$(arg launch_prefix)"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ur5e_with_task_board)/rviz_config/rviz_config.rviz" />
 
 </launch>
