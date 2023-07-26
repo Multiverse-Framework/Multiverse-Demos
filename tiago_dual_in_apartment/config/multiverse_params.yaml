@@ -1,6 +1,13 @@
 multiverse:
   server_socket_host: "tcp://127.0.0.1"
   server_socket_port: 7000
+
+  length_unit: m
+  angle_unit: rad
+  force_unit: N
+  time_unit: s
+  handedness: rhs
+  root_frame_id: map
   
   services:
     query_data:
@@ -9,7 +16,7 @@ multiverse:
   publishers:
     tf:
       port: 7300
-      rate: 60
+      rate: 30
     odom:
       port: 7301
       rate: 60
