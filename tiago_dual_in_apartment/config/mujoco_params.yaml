@@ -1,11 +1,11 @@
 mujoco:
   robots: [tiago_dual]
 
-  pose_init: 
+  pose_init:
     tiago_dual: [12.5, 2.5, 0.0, 0.0, 0.0, 0.0]
 
   add_odom_joints: true
-  
+
   spawn_and_destroy_objects_rate: 60.0
 
   root_frame_id: map
@@ -14,20 +14,15 @@ mujoco:
 
 multiverse:
   server_socket_host: "tcp://127.0.0.1"
-<<<<<<< HEAD
   server_socket_port: 7000
-  
-=======
-  server_socket_port: 8000
 
->>>>>>> d135485fbc0ed5a5a5a8bfbd7e3b34297b81e343
   length_unit: m
   angle_unit: rad
   force_unit: N
   time_unit: s
   handedness: rhs
   root_frame_id: map
-  
+
   send:
     body: ["position", "quaternion"]
     joint: ["joint_rvalue", "joint_tvalue"]
