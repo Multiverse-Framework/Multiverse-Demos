@@ -8,7 +8,4 @@
     <node pkg="multiverse_client" type="multiverse_socket_node.py" name="multiverse_socket"
         output="screen" launch-prefix="$(arg launch_prefix)"/>
 
-    <node name="rviz" pkg="rviz" type="rviz"
-        args="-d $(find tiago_dual_in_apartment)/rviz_config/rviz_config.rviz" />
-
 </launch>
