@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 78
+    Help Height: 138
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -8,8 +8,9 @@ Panels:
         - /Status1
         - /RobotModel1
         - /TF1
+        - /RobotModel2
       Splitter Ratio: 0.5
-    Tree Height: 787
+    Tree Height: 1628
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -17,17 +18,20 @@ Panels:
       - /2D Pose Estimate1
       - /2D Nav Goal1
     Name: Tool Properties
-    Splitter Ratio: 0.588679
+    Splitter Ratio: 0.5886790156364441
   - Class: rviz/Views
     Expanded:
       - /Current View1
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
-    Experimental: false
     Name: Time
     SyncMode: 0
     SyncSource: ""
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -37,7 +41,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Line Style:
-        Line Width: 0.03
+        Line Width: 0.029999999329447746
         Value: Lines
       Name: Grid
       Normal Cell Count: 0
@@ -54,37 +58,73 @@ Visualization Manager:
       Collision Enabled: false
       Enabled: true
       Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        link_1:
+        base_link_inertia:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_2:
+        flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_3:
+        gripper_hand_e_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_4:
+        gripper_hand_e_finger_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_5:
+        gripper_hand_e_finger_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_6:
+        shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -97,46 +137,203 @@ Visualization Manager:
       Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        /base_link:
-          Value: true
-        /link_1:
-          Value: true
-        /link_2:
-          Value: true
-        /link_3:
-          Value: true
-        /link_4:
-          Value: true
-        /link_5:
-          Value: true
-        /link_6:
-          Value: true
-        /tool0:
-          Value: true
         All Enabled: true
+        base:
+          Value: true
+        base_link:
+          Value: true
+        base_link_inertia:
+          Value: true
+        flange:
+          Value: true
+        forearm_link:
+          Value: true
+        gripper_hand_e_base:
+          Value: true
+        gripper_hand_e_finger_1:
+          Value: true
+        gripper_hand_e_finger_2:
+          Value: true
+        map:
+          Value: true
+        shoulder_link:
+          Value: true
+        task_board:
+          Value: true
+        task_board_button_1:
+          Value: true
+        task_board_button_2:
+          Value: true
+        task_board_clock:
+          Value: true
+        task_board_hole_1:
+          Value: true
+        task_board_hole_2:
+          Value: true
+        task_board_hole_3:
+          Value: true
+        task_board_lid:
+          Value: true
+        task_board_lid_knob:
+          Value: true
+        task_board_main:
+          Value: true
+        task_board_slider:
+          Value: true
+        tool0:
+          Value: true
+        upper_arm_link:
+          Value: true
+        ur5e:
+          Value: true
+        work_table:
+          Value: true
+        wrist_1_link:
+          Value: true
+        wrist_2_link:
+          Value: true
+        wrist_3_link:
+          Value: true
+      Marker Alpha: 1
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: true
+      Show Names: false
       Tree:
-        /base_link:
-          /link_1:
-            /link_2:
-              /link_3:
-                /link_4:
-                  /link_5:
-                    /link_6:
-                      /tool0:
-                        {}
+        map:
+          base:
+            {}
+          base_link:
+            {}
+          base_link_inertia:
+            {}
+          flange:
+            {}
+          forearm_link:
+            {}
+          gripper_hand_e_base:
+            {}
+          gripper_hand_e_finger_1:
+            {}
+          gripper_hand_e_finger_2:
+            {}
+          shoulder_link:
+            {}
+          task_board:
+            {}
+          task_board_button_1:
+            {}
+          task_board_button_2:
+            {}
+          task_board_clock:
+            {}
+          task_board_hole_1:
+            {}
+          task_board_hole_2:
+            {}
+          task_board_hole_3:
+            {}
+          task_board_lid:
+            {}
+          task_board_lid_knob:
+            {}
+          task_board_main:
+            {}
+          task_board_slider:
+            {}
+          tool0:
+            {}
+          upper_arm_link:
+            {}
+          ur5e:
+            {}
+          work_table:
+            {}
+          wrist_1_link:
+            {}
+          wrist_2_link:
+            {}
+          wrist_3_link:
+            {}
       Update Interval: 0
       Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        task_board_button_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_button_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_clock:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_hole_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_hole_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_hole_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_lid:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_lid_knob:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_main:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        task_board_slider:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: task_board_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: /base_link
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 30
   Name: root
   Tools:
     - Class: rviz/Interact
@@ -145,32 +342,43 @@ Visualization Manager:
     - Class: rviz/Select
     - Class: rviz/Measure
     - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
       Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
     - Class: rviz/SetGoal
       Topic: /move_base_simple/goal
   Value: true
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 10
+      Distance: 4.885748863220215
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 0.38104063272476196
+        Y: 0.796095073223114
+        Z: 0.6525484323501587
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
       Name: Current View
-      Near Clip Distance: 0.01
-      Pitch: 0.115398
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.5103966593742371
       Target Frame: <Fixed Frame>
-      Value: Orbit (rviz)
-      Yaw: 0.930399
+      Yaw: 4.110420227050781
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: false
-  Height: 1000
-  Hide Left Dock: false
+    collapsed: true
+  Height: 2032
+  Hide Left Dock: true
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000013c000003a2fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003a2000000dd00ffffff000000010000010f000003a2fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000028000003a2000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a0000002f700fffffffb0000000800540069006d00650100000000000004500000000000000000000002a9000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000002cf00000754fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b000000b000fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000006e000007540000018200ffffff000000010000015f00000754fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000006e000007540000013200fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000077d00fffffffb0000000800540069006d0065010000000000000450000000000000000000000d050000075400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -179,6 +387,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1280
-  X: 60
-  Y: 60
+  Width: 3696
+  X: 3984
+  Y: 54
