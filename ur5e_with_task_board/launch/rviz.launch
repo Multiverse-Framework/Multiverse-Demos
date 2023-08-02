@@ -1,0 +1,6 @@
+<launch>
+
+    <node name="rviz" pkg="rviz" type="rviz"
+        args="-d $(find ur5e_with_task_board)/rviz_config/rviz_config.rviz" />
+
+</launch>

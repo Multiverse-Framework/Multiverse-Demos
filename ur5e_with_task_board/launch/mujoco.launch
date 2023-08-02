@@ -1,12 +1,28 @@
 <launch>
 
-    <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
-        <arg name="config" value="$(find ur5e_with_task_board)/config/mujoco_params.yaml" />
-        <arg name="world" value="$(find work_table)/mjcf/work_table.xml" />
-        <arg name="robot" value="$(find ur_description)/urdf/ur5e_with_gripper.urdf" />
-        <arg name="disable_parent_child_collision_level" default="1"/>
-        <arg name="use_urdf" value="true" />
-    </include>
+    <arg name="headless" default="true" />
+
+    <group if="$(arg headless)">
+        <include file="$(find mujoco_sim)/launch/mujoco_sim_headless.launch">
+            <arg name="config" value="$(find ur5e_with_task_board)/config/mujoco_params.yaml" />
+            <arg name="world" value="$(find work_table)/mjcf/work_table.xml" />
+            <arg name="robot" value="$(find ur_description)/urdf/ur5e_with_gripper.urdf" />
+            <arg name="disable_parent_child_collision_level" default="1"/>
+            <arg name="use_urdf" value="true" />
+        </include>
+    </group>
+
+    <group unless="$(arg headless)">
+        <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
+            <arg name="config" value="$(find ur5e_with_task_board)/config/mujoco_params.yaml" />
+            <arg name="world" value="$(find work_table)/mjcf/work_table.xml" />
+            <arg name="robot" value="$(find ur_description)/urdf/ur5e_with_gripper.urdf" />
+            <arg name="disable_parent_child_collision_level" default="1"/>
+            <arg name="use_urdf" value="true" />
+        </include>
+    </group>
+
+    <node pkg="task_board" type="spawn_task_board.py" name="spawn_task_board" output="screen"/>
 
     <rosparam command="load" file="$(find ur5e_with_task_board)/config/ros_control_params.yaml" />
 	<node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="spawn 
