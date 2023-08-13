@@ -3,9 +3,9 @@
     <arg name="delay" default="0"/>
     
     <arg name="launch_prefix" default="bash -c 'sleep $(arg delay); $0 $@'"/>
-    
-    <rosparam command="load" file="$(find tiago_dual_in_apartment)/config/multiverse_params.yaml" />
-    <node pkg="multiverse_client" type="multiverse_socket_node.py" name="multiverse_socket"
+
+    <rosparam command="load" file="$(find ur5e_with_task_board)/config/multiverse_params.yaml" />
+    <node pkg="multiverse_socket" type="multiverse_socket_node.py" name="multiverse_socket"
         output="screen" launch-prefix="$(arg launch_prefix)"/>
 
 </launch>

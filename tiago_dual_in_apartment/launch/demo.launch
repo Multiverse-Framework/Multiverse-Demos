@@ -4,7 +4,7 @@
 
     <include file="$(find multiverse_server)/launch/multiverse_server.launch" />
 
-    <include file="$(find tiago_dual_in_apartment)/launch/multiverse_client.launch">
+    <include file="$(find tiago_dual_in_apartment)/launch/multiverse_socket.launch">
         <arg name="delay" value="1" />
     </include>
 

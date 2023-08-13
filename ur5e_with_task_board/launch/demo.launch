@@ -2,9 +2,7 @@
 
     <include file="$(find ur5e_with_task_board)/launch/mujoco.launch" />
 
-    <include file="$(find multiverse_server)/launch/multiverse_server.launch"/>
-
-    <include file="$(find ur5e_with_task_board)/launch/multiverse_client.launch">
+    <include file="$(find ur5e_with_task_board)/launch/multiverse_socket.launch">
         <arg name="delay" value="1" />
     </include>
 
