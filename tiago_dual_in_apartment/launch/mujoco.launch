@@ -1,9 +1,13 @@
 <launch>
 
     <arg name="headless" default="true" />
+    <arg name="server_host" default="tcp://127.0.0.1"/>
+    <arg name="server_port" default="7000"/>
 
     <group if="$(arg headless)">
         <include file="$(find mujoco_sim)/launch/mujoco_sim_headless.launch">
+            <arg name="server_host" default="$(arg server_host)"/>
+            <arg name="server_port" default="$(arg server_port)"/>
             <arg name="config" value="$(find tiago_dual_in_apartment)/config/mujoco_params.yaml" />
             <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
             <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual.urdf" />
@@ -14,6 +18,8 @@
 
     <group unless="$(arg headless)">
         <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
+            <arg name="server_host" default="$(arg server_host)"/>
+            <arg name="server_port" default="$(arg server_port)"/>
             <arg name="config" value="$(find tiago_dual_in_apartment)/config/mujoco_params.yaml" />
             <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
             <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual.urdf" />

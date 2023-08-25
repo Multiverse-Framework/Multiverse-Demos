@@ -1,11 +1,17 @@
 <launch>
 
-    <include file="$(find tiago_dual_in_apartment)/launch/mujoco.launch" />
+    <arg name="server_host" default="tcp://127.0.0.1"/>
+    <arg name="server_port" default="7000"/>
 
-    <include file="$(find multiverse_server)/launch/multiverse_server.launch" />
+    <include file="$(find tiago_dual_in_apartment)/launch/mujoco.launch" >
+        <arg name="server_host" default="$(arg server_host)"/>
+        <arg name="server_port" default="$(arg server_port)"/>
+    </include>
 
     <include file="$(find tiago_dual_in_apartment)/launch/multiverse_socket.launch">
         <arg name="delay" value="1" />
+        <arg name="server_host" default="$(arg server_host)"/>
+        <arg name="server_port" default="$(arg server_port)"/>
     </include>
 
 </launch>
