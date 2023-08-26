@@ -1,8 +1,8 @@
 <launch>
     
     <arg name="delay" default="0"/>
-    <arg name="server_host" default="$(arg server_host)"/>
-    <arg name="server_port" default="$(arg server_port)"/>
+    <arg name="server_host" default="tcp://127.0.0.1" />
+    <arg name="server_port" default="7000" />
 
     <rosparam ns="multiverse" subst_value="true">
         host: $(arg server_host)
