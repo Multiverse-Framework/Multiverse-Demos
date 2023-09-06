@@ -2,7 +2,7 @@ mujoco:
   robots: [tiago_dual]
 
   pose_init:
-    tiago_dual: [12.5, 2.5, 0.0, 0.0, 0.0, 0.0]
+    tiago_dual: [1.5, 2.5, 0.0, 0.0, 0.0, 0.0]
 
   add_odom_joints: true
 
