@@ -10,7 +10,7 @@
             <arg name="server_port" default="$(arg server_port)"/>
             <arg name="config" value="$(find tiago_dual_in_apartment)/config/mujoco_params.yaml" />
             <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
-            <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual.urdf" />
+            <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual_tall.urdf" />
             <arg name="disable_parent_child_collision_level" default="3" />
             <arg name="use_urdf" value="true" />
         </include>
@@ -22,7 +22,7 @@
             <arg name="server_port" default="$(arg server_port)"/>
             <arg name="config" value="$(find tiago_dual_in_apartment)/config/mujoco_params.yaml" />
             <arg name="world" value="$(find iai_apartment)/mjcf/apartment.xml" />
-            <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual.urdf" />
+            <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual_tall.urdf" />
             <arg name="disable_parent_child_collision_level" default="3" />
             <arg name="use_urdf" value="true" />
         </include>

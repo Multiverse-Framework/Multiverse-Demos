@@ -15,17 +15,16 @@ import rospkg
 from multiverse_msgs.msg import ObjectAttribute
 from multiverse_msgs.srv import Socket, SocketRequest, SocketResponse
 
-import actionlib
-from control_msgs.msg import GripperCommandAction, GripperCommandGoal
+from std_msgs.msg import Float64
 
-gripper_left_clients = [
-    actionlib.SimpleActionClient("/gripper_left_right_finger/gripper_cmd", GripperCommandAction),
-    actionlib.SimpleActionClient("/gripper_left_left_finger/gripper_cmd", GripperCommandAction),
+gripper_left_publishers = [
+    rospy.Publisher("/gripper_left_left_finger_effort_controller/command", Float64, queue_size=10),
+    rospy.Publisher("/gripper_left_right_finger_effort_controller/command", Float64, queue_size=10),
 ]
 
-gripper_right_clients = [
-    actionlib.SimpleActionClient("/gripper_right_left_finger/gripper_cmd", GripperCommandAction),
-    actionlib.SimpleActionClient("/gripper_right_right_finger/gripper_cmd", GripperCommandAction),
+gripper_right_publishers = [
+    rospy.Publisher("/gripper_right_left_finger_effort_controller/command", Float64, queue_size=10),
+    rospy.Publisher("/gripper_right_right_finger_effort_controller/command", Float64, queue_size=10),
 ]
 
 
@@ -36,33 +35,12 @@ def control_gripper(open: bool, left: bool = True, right: bool = True) -> None:
         rospy.loginfo("Close gripper")
 
     if left:
-        for gripper_client in gripper_left_clients:
-            gripper_client.wait_for_server()
-        gripper_cmd_goal = GripperCommandGoal()
-        gripper_cmd_goal.command.position = open * 0.4
-        gripper_cmd_goal.command.max_effort = 500.0
-
-        for gripper_client in gripper_left_clients:
-            gripper_client.send_goal(gripper_cmd_goal)
+        for gripper_left_publisher in gripper_left_publishers:
+            gripper_left_publisher.publish(Float64(100) if open else Float64(-100))
 
     if right:
-        for gripper_client in gripper_right_clients:
-            gripper_client.wait_for_server()
-        gripper_cmd_goal = GripperCommandGoal()
-        gripper_cmd_goal.command.position = open * 0.4
-        gripper_cmd_goal.command.max_effort = 500.0
-
-        for gripper_client in gripper_right_clients:
-            gripper_client.send_goal(gripper_cmd_goal)
-
-    if not open:
-        if left:
-            for gripper_client in gripper_left_clients:
-                gripper_client.wait_for_result()
-        if right:
-            for gripper_client in gripper_right_clients:
-                gripper_client.wait_for_result()
-        rospy.sleep(1)
+        for gripper_right_publisher in gripper_right_publishers:
+            gripper_right_publisher.publish(Float64(100) if open else Float64(-100))
 
 
 class CRAM:
@@ -259,13 +237,13 @@ class CRAM:
         self.giskard.set_cart_goal(goal_pose=left_grasp_pose, root_link="base_footprint", tip_link=tip_link)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
-        rospy.sleep(15)
+        rospy.sleep(5)
         self.update_box_state()
-        
+
         # slip
         left_grasp_pose = PoseStamped()
         left_grasp_pose.header.frame_id = tip_link
-        left_grasp_pose.pose.position.x = 0.04
+        left_grasp_pose.pose.position.x = 0.03
         left_grasp_pose.pose.position.y = -0.02
         left_grasp_pose.pose.orientation = Quaternion(*quaternion_about_axis(-np.pi / 6, [0, 0, 1]))
         self.giskard.set_cart_goal(goal_pose=left_grasp_pose, root_link="base_footprint", tip_link=tip_link)
@@ -375,11 +353,12 @@ class CRAM:
 
         grasp_pose = PoseStamped()
         grasp_pose.header.frame_id = self.milk_name
-        grasp_pose.pose.position.y = 0.07
+        grasp_pose.pose.position.y = 0.075
         grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])))
         self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=tip_link)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
+
         self.close_right_gripper()
         self.giskard.update_parent_link_of_group(name=self.milk_name, parent_link=tip_link)
 
@@ -413,15 +392,16 @@ class CRAM:
 
         grasp_pose = PoseStamped()
         grasp_pose.header.frame_id = self.fridge_handle_link
-        grasp_pose.pose.position.x = -0.01
+        grasp_pose.pose.position.x = -0.008
         grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0], [0, 0, 0, 1]])))
         self.giskard.set_cart_goal(goal_pose=grasp_pose, tip_link=self.left_gripper_tool_frame, root_link=self.base_footprint)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
         self.close_left_gripper()
+        rospy.sleep(5)
 
         self.giskard.set_open_container_goal(
-            tip_link=self.left_gripper_tool_frame, environment_link=self.fridge_handle_link, max_velocity=0.1, goal_joint_state=np.pi / 3
+            tip_link=self.left_gripper_tool_frame, environment_link=self.fridge_handle_link, goal_joint_state=np.pi / 3
         )
         self.add_keep_base_position_goal()
         self.giskard.allow_all_collisions()
@@ -437,7 +417,7 @@ class CRAM:
         fridge_door_tray1 = "fridge_door_tray1"
         place_pose = PoseStamped()
         place_pose.header.frame_id = fridge_door_tray1
-        place_pose.pose.position.y = -0.15
+        place_pose.pose.position.y = -0.1
         place_pose.pose.position.z = 0.12
         place_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 1, 0, 0], [0, 0, -1, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
         self.giskard.set_cart_goal(goal_pose=place_pose, tip_link=self.milk_name, root_link="map")
@@ -456,7 +436,7 @@ class CRAM:
         rotate_milk_goal.pose.position.y = -0.02
         rotate_milk_goal.pose.position.z = -0.02
         rotate_milk_goal.pose.orientation = Quaternion(*quaternion_about_axis(-np.pi / 2, [0, 1, 0]))
-        self.giskard.set_cart_goal(goal_pose=rotate_milk_goal, tip_link=self.milk_name, root_link=self.base_footprint)
+        self.giskard.set_cart_goal(goal_pose=rotate_milk_goal, tip_link=self.milk_name, root_link=self.torso_link)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
         self.open_right_gripper()
@@ -475,10 +455,27 @@ class CRAM:
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
 
-        self.open_left_gripper()
         self.update_apartment_state()
         self.giskard.set_close_container_goal(tip_link=self.left_gripper_tool_frame, environment_link=self.fridge_handle_link)
         self.add_keep_base_position_goal()
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+        self.open_left_gripper()
+
+        left_hand_goal = PoseStamped()
+        left_hand_goal.header.frame_id = self.left_gripper_tool_frame
+        left_hand_goal.pose.position.x = -0.05
+        left_hand_goal.pose.orientation.w = 1
+        self.giskard.set_cart_goal(goal_pose=left_hand_goal, tip_link=self.left_gripper_tool_frame, root_link=self.base_footprint)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        cart_goal = PoseStamped()
+        cart_goal.header.frame_id = "map"
+        cart_goal.pose.position = Point(1.5, 2.5, 0)
+        cart_goal.pose.orientation.z = 1
+        self.giskard.set_joint_goal(goal_state=self.park_pose)
+        self.giskard.set_json_goal(constraint_type="DiffDriveBaseGoal", goal_pose=cart_goal, tip_link=self.base_footprint, root_link="map")
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
 
