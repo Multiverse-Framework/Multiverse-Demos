@@ -149,8 +149,8 @@ class CRAM:
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
         milk_pose = tf.lookup_pose("map", self.milk_name)
-        self.giskard.add_box(name=self.milk_name, size=[0.06, 0.06, 0.18], pose=milk_pose, parent_link="map")
-
+        self.giskard.add_box(name=self.milk_name, size=[0.06, 0.095, 0.2], pose=milk_pose, parent_link="map")
+        
     def initial_pose(self):
         cart_goal = PoseStamped()
         cart_goal.header.frame_id = "map"
