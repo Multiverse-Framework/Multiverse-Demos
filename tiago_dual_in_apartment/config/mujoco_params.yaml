@@ -29,6 +29,8 @@ mujoco:
 
   disable_gravity: true
 
+  max_time_step: 0.004
+
 multiverse:
   length_unit: m
   angle_unit: rad

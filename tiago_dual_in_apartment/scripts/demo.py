@@ -389,6 +389,7 @@ class CRAM:
         cart_goal.pose.position = Point(1.25, 2.85, 0)
         cart_goal.pose.orientation = Quaternion(*quaternion_about_axis(np.pi, [0, 0, 1]))
         self.drive_to(cart_goal)
+        self.drive_to(cart_goal)
 
         grasp_pose = PoseStamped()
         grasp_pose.header.frame_id = self.fridge_handle_link

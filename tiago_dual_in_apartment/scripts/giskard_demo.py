@@ -37,7 +37,7 @@ def control_gripper(open: bool, left: bool = True, right: bool = True) -> None:
 
 if __name__=="__main__":
     rospy.init_node("test_giskard")
-    handle_name = 'cabinet9_drawer3_handle'
+    handle_name = 'cabinet9_drawer2_handle'
     apartment_name = 'apartment'
     left_gripper_name = 'left_gripper_tool_frame'
 
