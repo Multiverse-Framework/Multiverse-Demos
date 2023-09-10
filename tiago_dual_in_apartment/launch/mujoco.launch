@@ -37,7 +37,4 @@
         <arg name="navigation_map" default="$(find iai_apartment)/map/apartment.yaml" />
     </include>
 
-    <param name="box_description"
-        command="$(find xacro)/xacro '$(find articulated_objects)/box/urdf/box.urdf'" />
-
 </launch>

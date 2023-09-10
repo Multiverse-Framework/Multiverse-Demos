@@ -13,7 +13,7 @@ robot = Object("tiago_dual", "tiago_dual", "tiago_dual.urdf", pose=Pose([1, 2, 0
 
 spoon = Object("spoon", "spoon", "spoon.stl", pose=Pose([2.4, 2.2, 0.85]))
 apartment = Object("apartment", "environment", "apartment.urdf")
-apartment.attach(spoon, 'cabinet10_drawer1')
+apartment.attach(spoon, "cabinet10_drawer1")
 
 robot_desig = BelieveObject(names=["tiago_dual"])
 apartment_desig = BelieveObject(names=["apartment"])

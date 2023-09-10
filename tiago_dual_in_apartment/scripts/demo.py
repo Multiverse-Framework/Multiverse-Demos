@@ -17,6 +17,9 @@ from multiverse_msgs.srv import Socket, SocketRequest, SocketResponse
 
 from std_msgs.msg import Float64
 
+from spawn_box import spawn_box
+from spawn_milk_box import spawn_milk_box
+
 gripper_left_publishers = [
     rospy.Publisher("/gripper_left_left_finger_effort_controller/command", Float64, queue_size=10),
     rospy.Publisher("/gripper_left_right_finger_effort_controller/command", Float64, queue_size=10),
@@ -150,7 +153,7 @@ class CRAM:
         self.giskard.plan_and_execute()
         milk_pose = tf.lookup_pose("map", self.milk_name)
         self.giskard.add_box(name=self.milk_name, size=[0.06, 0.095, 0.2], pose=milk_pose, parent_link="map")
-        
+
     def initial_pose(self):
         cart_goal = PoseStamped()
         cart_goal.header.frame_id = "map"
@@ -488,6 +491,10 @@ class CRAM:
 
 if __name__ == "__main__":
     rospy.init_node("demo")
+
+    spawn_box()
+    spawn_milk_box()
+
     cram = CRAM()
     cram.initial_pose()
     cram.open_grippers()

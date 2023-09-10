@@ -5,6 +5,7 @@ import rospy
 from mujoco_msgs.msg import ObjectStatus, ObjectInfo
 from mujoco_msgs.srv import SpawnObject, SpawnObjectRequest
 from std_srvs.srv import Trigger, TriggerRequest
+from urdf_parser_py import urdf
 
 import rospkg
 
@@ -35,15 +36,11 @@ def spawn_box() -> None:
         spawn_objects = rospy.ServiceProxy("/mujoco/spawn_objects", SpawnObject)
         spawn_resp = spawn_objects(objects)
         rospy.loginfo("Spawn response: " + str(spawn_resp))
-    except rospy.ServiceException as error:
-        print(f"Service call failed: {error}")
 
+        box_urdf_path = rospack.get_path("articulated_objects") + "/box/urdf/box.urdf"
+        box_urdf: urdf.Robot = urdf.Robot.from_xml_file(file_path=box_urdf_path)
+        rospy.set_param("/box_description", box_urdf.to_xml_string())
 
-def reset_simulation():
-    rospy.wait_for_service("/mujoco/reset")
-    try:
-        reset_service = rospy.ServiceProxy("/mujoco/reset", Trigger)
-        reset_service(TriggerRequest())
     except rospy.ServiceException as error:
         print(f"Service call failed: {error}")
 
