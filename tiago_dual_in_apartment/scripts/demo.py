@@ -64,6 +64,8 @@ class CRAM:
     torso_link = "torso_lift_link"
     apartment_joints: List[str] = []
     fridge_handle_link = "fridge_door1_handle"
+    drawer_name = "cabinet9_drawer2"
+    drawer_handle_name = "cabinet9_drawer2_handle"
     park_pose = {
         "arm_left_1_joint": -1.0,
         "arm_left_2_joint": 0.0,
@@ -154,7 +156,7 @@ class CRAM:
     def load_spoon(self):
         if self.spoon not in self.giskard.get_group_names():
             spoon_pose = tf.lookup_pose("map", self.spoon)
-            self.giskard.add_urdf(name=self.spoon, urdf=rospy.get_param("spoon_description"), pose=spoon_pose, parent_link="map")
+            self.giskard.add_mesh(name=self.spoon, mesh='package://static_objects/spoon/meshes/obj/SM_Spoon.obj', pose=spoon_pose)
 
     def look_into_box(self):
         self.initial_pose()
@@ -398,96 +400,137 @@ class CRAM:
         self.initial_pose()
 
     def pick_spoon(self):
-        tip_link = self.right_tip_link
         pre_pose = PoseStamped()
         pre_pose.header.frame_id = self.spoon
-        pre_pose.pose.position.x = 0.055
+        pre_pose.pose.position.x = 0.075
+        pre_pose.pose.position.z = 0.35
+        pre_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 1, 0, 0], [0, 0, -1, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
+        
+        self.giskard.set_cart_goal(goal_pose=pre_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        pre_pose = PoseStamped()
+        pre_pose.header.frame_id = self.spoon
+        pre_pose.pose.position.x = -0.055
         pre_pose.pose.position.z = 0.35
         pre_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
         
-        self.giskard.set_cart_goal(goal_pose=pre_pose, root_link=self.base_footprint, tip_link=tip_link)
+        self.giskard.set_cart_goal(goal_pose=pre_pose, root_link=self.torso_link, tip_link=self.left_tip_link)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
+
+        self.close_right_gripper()
         
         grasp_pose = PoseStamped()
         grasp_pose.header.frame_id = self.spoon
-        grasp_pose.pose.position.x = 0.055
-        grasp_pose.pose.position.z = 0.083
+        grasp_pose.pose.position.x = 0.085
+        grasp_pose.pose.position.z = 0.08
+        grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 1, 0, 0], [0, 0, -1, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        grasp_pose = PoseStamped()
+        grasp_pose.header.frame_id = self.spoon
+        grasp_pose.pose.position.x = -0.025
+        grasp_pose.pose.position.z = 0.095
         grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
-        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=tip_link)
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.left_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        self.close_left_gripper()
+
+        spoon_pose = tf.lookup_pose("map", self.spoon)
+        self.giskard.update_group_pose(group_name=self.spoon, new_pose=spoon_pose)
+        self.giskard.update_parent_link_of_group(name=self.spoon, parent_link=self.left_tip_link)
+
+        grasp_pose = PoseStamped()
+        grasp_pose.header.frame_id = self.right_tip_link
+        grasp_pose.pose.position.x = -0.4
+        grasp_pose.pose.position.y = 0.05
+        grasp_pose.pose.orientation.w = 1
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        grasp_pose = PoseStamped()
+        grasp_pose.header.frame_id = self.left_tip_link
+        grasp_pose.pose.position.x = -0.3
+        grasp_pose.pose.orientation.w = 1
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.left_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        spoon_pose = tf.lookup_pose("map", self.spoon)
+        self.giskard.update_group_pose(group_name=self.spoon, new_pose=spoon_pose)
+        
+        grasp_pose = PoseStamped()
+        grasp_pose.header.frame_id = self.spoon
+        grasp_pose.pose.position.x = 0.25
+        grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[-1, 0, 0, 0], [0, 0, -1, 0], [-0, -1, 0, 0], [0, 0, 0, 1]])))
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        self.open_right_gripper()
+
+        spoon_pose = tf.lookup_pose("map", self.spoon)
+        self.giskard.update_group_pose(group_name=self.spoon, new_pose=spoon_pose)
+
+        grasp_pose = PoseStamped()
+        grasp_pose.header.frame_id = self.spoon
+        grasp_pose.pose.position.x = 0.15
+        grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[-1, 0, 0, 0], [0, 0, -1, 0], [-0, -1, 0, 0], [0, 0, 0, 1]])))
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
 
         self.close_right_gripper()
 
-        rospy.sleep(10)
+        self.giskard.update_parent_link_of_group(name=self.spoon, parent_link=self.right_tip_link)
+
+        rospy.sleep(5)
+
+        # grasp_pose = PoseStamped()
+        # grasp_pose.header.frame_id = self.left_tip_link
+        # grasp_pose.pose.position.x = 0.05
+        # grasp_pose.pose.orientation.w = 1
+        # self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.left_tip_link)
+        # self.giskard.allow_all_collisions()
+        # self.giskard.plan_and_execute()
+
+        self.open_left_gripper()
 
         grasp_pose = PoseStamped()
-        grasp_pose.header.frame_id = self.spoon
-        grasp_pose.pose.position.x = 0.055
-        grasp_pose.pose.position.z = 0.1
-        grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
-        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=tip_link)
+        grasp_pose.header.frame_id = self.left_tip_link
+        grasp_pose.pose.position.z = -0.2
+        grasp_pose.pose.orientation.w = 1
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=self.left_tip_link)
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
 
-        # grasp_pose = PoseStamped()
-        # grasp_pose.header.frame_id = self.spoon
-        # grasp_pose.pose.position.x = 0.065
-        # grasp_pose.pose.position.z = 0.08
-        # grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
-        # self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=tip_link)
-        # self.giskard.allow_all_collisions()
-        # self.giskard.plan_and_execute()
+        grasp_pose = PoseStamped()
+        grasp_pose.header.frame_id = self.right_tip_link
+        grasp_pose.pose.position.y = -0.15
+        grasp_pose.pose.position.z = 0.15
+        grasp_pose.pose.orientation.w = 1
+        self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.base_footprint, tip_link=self.right_tip_link)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
 
-        # self.close_right_gripper()
+        cart_goal = PoseStamped()
+        cart_goal.header.frame_id = "map"
+        cart_goal.pose.position.x = 1.7
+        cart_goal.pose.position.y = 2.5
+        cart_goal.pose.orientation.w = 1  # identity rotation
+        self.giskard.set_cart_goal(goal_pose=cart_goal, tip_link="base_footprint", root_link="map")
+        self.giskard.plan_and_execute()
 
-        # self.giskard.set_joint_goal(self.left_push_spoon_pose)
-        # self.giskard.allow_all_collisions()
-        # self.giskard.plan_and_execute()
-
-
-
-        # grasp_pose = PoseStamped()
-        # grasp_pose.header.frame_id = self.spoon
-        # grasp_pose.pose.position.x = 0.1
-        # grasp_pose.pose.position.z = 0.08
-        # grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
-        # self.giskard.set_cart_goal(goal_pose=grasp_pose, root_link=self.torso_link, tip_link=tip_link)
-
-        # self.close_right_gripper()
-        # self.giskard.update_parent_link_of_group(name=self.spoon, parent_link=tip_link)
-
-        # rospy.sleep(2)
-
-        # pre_pose = PoseStamped()
-        # pre_pose.header.frame_id = self.spoon
-        # pre_pose.pose.position.z = 0.01
-        # pre_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
-        # self.giskard.set_cart_goal(goal_pose=pre_pose, root_link=self.torso_link, tip_link=self.spoon)
-        # self.giskard.allow_all_collisions()
-        # self.giskard.plan_and_execute()
-
-        # pre_pose = PoseStamped()
-        # pre_pose.header.frame_id = self.spoon
-        # pre_pose.pose.position.z = 0.045
-        # pre_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]])))
-        # self.giskard.set_cart_goal(goal_pose=pre_pose, root_link=self.torso_link, tip_link=self.spoon)
-        # self.giskard.allow_all_collisions()
-        # self.giskard.plan_and_execute()
-
-        # goal_state = {}
-        # goal_state["arm_right_5_joint"] = -1.5
-        # goal_state["arm_right_6_joint"] = 0.5
-        # goal_state["arm_right_7_joint"] = 1.57
-        # self.giskard.set_joint_goal(goal_state=goal_state)
-        # self.giskard.allow_all_collisions()
-        # self.giskard.plan_and_execute()
-
-        # self.initial_pose()
+        cram.initial_pose()
 
     def open_fridge(self):
-        self.load_apartment()
         self.open_left_gripper()
         self.giskard.set_joint_goal(goal_state=self.park_pose)
         cart_goal = PoseStamped()
@@ -586,6 +629,56 @@ class CRAM:
         self.giskard.allow_all_collisions()
         self.giskard.plan_and_execute()
 
+    def open_drawer(self):
+        cart_goal = PoseStamped()
+        cart_goal.header.frame_id = "map"
+        cart_goal.pose.position.x = 1.7
+        cart_goal.pose.position.y = 2.5
+        cart_goal.pose.orientation.w = 1  # identity rotation
+        self.giskard.set_cart_goal(goal_pose=cart_goal, tip_link="base_footprint", root_link="map")
+        self.giskard.plan_and_execute()
+
+        left_gripper_goal = PoseStamped()
+        left_gripper_goal.header.frame_id = self.drawer_handle_name
+        left_gripper_goal.pose.position.x = -0.1
+        left_gripper_goal.pose.orientation.x = 1  # 180-degree rotation about x-axis of gripper
+        self.giskard.set_cart_goal(goal_pose=left_gripper_goal, tip_link=self.left_gripper_tool_frame, root_link="base_footprint")
+        self.giskard.plan_and_execute()
+
+        # grasp pose
+        left_gripper_goal = PoseStamped()
+        left_gripper_goal.header.frame_id = self.drawer_handle_name
+        left_gripper_goal.pose.position.x = -0.01
+        left_gripper_goal.pose.orientation.x = 1  # 180-degree rotation about x-axis of gripper
+        self.giskard.set_cart_goal(goal_pose=left_gripper_goal, tip_link=self.left_gripper_tool_frame, root_link="base_footprint")
+        self.giskard.plan_and_execute()
+        self.close_left_gripper()
+
+        # open drawer
+        self.giskard.set_open_container_goal(tip_link=self.left_gripper_tool_frame, environment_link=self.drawer_handle_name, max_velocity=0.1)
+        self.giskard.plan_and_execute()
+
+    def place_spoon(self):
+        right_hand_goal = PoseStamped()
+        right_hand_goal.header.frame_id = self.drawer_name
+        right_hand_goal.pose.position.z = 0.3
+        right_hand_goal.pose.position.y = -0.1
+        right_hand_goal.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[0, 0, 1, 0], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]])))
+        self.giskard.set_cart_goal(goal_pose=right_hand_goal, tip_link=self.right_gripper_tool_frame, root_link=self.base_footprint)
+        self.giskard.allow_all_collisions()
+        self.giskard.plan_and_execute()
+
+        self.open_right_gripper()
+
+        spoon_pose = tf.lookup_pose("map", self.spoon)
+        self.giskard.update_group_pose(group_name=self.spoon, new_pose=spoon_pose)
+        self.giskard.detach_group(object_name=self.spoon)
+
+    def close_drawer(self):
+        self.giskard.set_close_container_goal(tip_link=self.left_gripper_tool_frame, environment_link=self.drawer_handle_name)
+        self.giskard.plan_and_execute()
+        control_gripper(open=True)
+
     def update_milk_pose(self):
         milk_pose = tf.lookup_pose(self.right_tip_link, self.milk_box)
         milk_pose.header.frame_id = f"tiago_dual/{milk_pose.header.frame_id}"
@@ -595,23 +688,28 @@ class CRAM:
 if __name__ == "__main__":
     rospy.init_node("demo")
 
-    # spawn_box()
+    spawn_box()
     # spawn_milk_box()
-    spawn_spoon()
-
+    
     cram = CRAM()
-    # cram.load_box()
+    cram.load_box()
     cram.initial_pose()
+    spawn_spoon()
     cram.open_grippers()
     # cram.open_left_flap()
     # cram.open_right_flap()
-    # cram.look_into_box()
+    cram.look_into_box()
     # cram.load_milk_box()
     # cram.pick_milk_box()
     # cram.giskard.clear_world()
     cram.load_spoon()
+    cram.initial_pose()
     cram.pick_spoon()
+    cram.load_apartment()
+    cram.open_drawer()
+    cram.place_spoon()
+    cram.close_drawer()
     # cram.open_fridge()
     # cram.place_milk()
     # cram.close_fridge()
-    # cram.initial_pose()
+    cram.initial_pose()
