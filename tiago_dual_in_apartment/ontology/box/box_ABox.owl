@@ -773,7 +773,7 @@ ObjectPropertyAssertion(USD:physics_body1 USD:box_flap_side_1_joint USD:box_flap
 # Individual: USD:box_flap_side_1_joint_jointValue (USD:box_flap_side_1_joint_jointValue)
 
 ClassAssertion(DUL:Quality USD:box_flap_side_1_joint_jointValue)
-DataPropertyAssertion(USD:hasJointValue USD:box_flap_side_1_joint_jointValue "2.7397961292812183"^^xsd:double)
+DataPropertyAssertion(USD:hasJointValue USD:box_flap_side_1_joint_jointValue "2.7819239919135104"^^xsd:double)
 
 # Individual: USD:box_flap_side_2 (USD:box_flap_side_2)
 
@@ -816,7 +816,7 @@ ObjectPropertyAssertion(USD:physics_body1 USD:box_flap_side_2_joint USD:box_flap
 # Individual: USD:box_flap_side_2_joint_jointValue (USD:box_flap_side_2_joint_jointValue)
 
 ClassAssertion(DUL:Quality USD:box_flap_side_2_joint_jointValue)
-DataPropertyAssertion(USD:hasJointValue USD:box_flap_side_2_joint_jointValue "4.610864445870517"^^xsd:double)
+DataPropertyAssertion(USD:hasJointValue USD:box_flap_side_2_joint_jointValue "4.604098024827964"^^xsd:double)
 
 # Individual: USD:box_geom_1 (USD:box_geom_1)
 

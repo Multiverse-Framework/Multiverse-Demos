@@ -462,10 +462,18 @@ class CRAM:
         right_pre_grasp_pose.header.frame_id = self.object
         right_pre_grasp_pose.pose.position.x = 0.23
         right_pre_grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[-1, 0, 0, 0], [0, 0, -1, 0], [-0, -1, 0, 0], [0, 0, 0, 1]])))
-        self.giskard.set_cart_goal(goal_pose=right_pre_grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link, max_angular_velocity=0.1)
+        self.giskard.set_cart_goal(goal_pose=right_pre_grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
         self.giskard.plan_and_execute()
 
         self.open_right_gripper()
+
+        post_cart_goal = PoseStamped()
+        post_cart_goal.header.frame_id = self.map
+        post_cart_goal.pose.position.x = 1.7
+        post_cart_goal.pose.position.y = 2.5
+        post_cart_goal.pose.orientation.w = 1
+        self.giskard.set_cart_goal(goal_pose=post_cart_goal, tip_link=self.base_footprint, root_link=self.map)
+        self.giskard.plan_and_execute()
 
         spoon_pose = tf.lookup_pose(self.map, self.object)
         self.giskard.update_group_pose(group_name=self.object, new_pose=spoon_pose)
@@ -474,7 +482,7 @@ class CRAM:
         right_grasp_pose.header.frame_id = self.object
         right_grasp_pose.pose.position.x = 0.1
         right_grasp_pose.pose.orientation = Quaternion(*quaternion_from_matrix(np.array([[-1, 0, 0, 0], [0, 0, -1, 0], [-0, -1, 0, 0], [0, 0, 0, 1]])))
-        self.giskard.set_cart_goal(goal_pose=right_grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
+        self.giskard.set_cart_goal(goal_pose=right_grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link, max_linear_velocity=0.1, max_angular_velocity=0.1)
         self.giskard.plan_and_execute()
 
         self.close_right_gripper()
@@ -497,14 +505,6 @@ class CRAM:
         right_post_grasp_pose.pose.position.z = 0.15
         right_post_grasp_pose.pose.orientation.w = 1
         self.giskard.set_cart_goal(goal_pose=right_post_grasp_pose, root_link=self.torso_link, tip_link=self.right_tip_link)
-
-        post_cart_goal = PoseStamped()
-        post_cart_goal.header.frame_id = self.map
-        post_cart_goal.pose.position.x = 1.7
-        post_cart_goal.pose.position.y = 2.5
-        post_cart_goal.pose.orientation.w = 1
-        self.giskard.set_cart_goal(goal_pose=post_cart_goal, tip_link=self.base_footprint, root_link=self.map)
-        self.giskard.plan_and_execute()
 
     def pick_object(self):
         if object_name == "milk_box":
