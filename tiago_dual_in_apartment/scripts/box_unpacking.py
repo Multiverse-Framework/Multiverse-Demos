@@ -758,12 +758,11 @@ if __name__ == "__main__":
     cram = CRAM(object_name)
 
     spawn_box()
-    cram.load_box()
+    spawn_object(object_name)
 
+    cram.load_box()
     cram.initial_pose()
     cram.open_grippers()
-
-    spawn_object(object_name)
 
     konclude.assert_box_state(cram.get_box_joint_state())
         
