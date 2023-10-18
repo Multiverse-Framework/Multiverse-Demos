@@ -38,16 +38,19 @@ if __name__ == '__main__':
         poses.append(Pose(Point(-1.5, -1.0, 0.0), Quaternion(0, 0, 1, 0)))
         poses.append(Pose(Point(-1, 2.5, 0.0), Quaternion(0, 0, 0.707, 0.707)))
         poses.append(Pose(Point(5.0, 3.0, 0.0), Quaternion(0, 0, 0, 1)))
+        poses.append(Pose(Point(2.0, 6.0, 0.0), Quaternion(0, 0, -0.707, 0.707)))
+        poses.append(Pose(Point(-1.0, -4.0, 0.0), Quaternion(0, 0, 0, 1)))
 
-        for pose in poses:
-            # Define your goal pose here. This is just an example.
-            goal_pose = PoseStamped()
-            goal_pose.pose = pose
+        while not rospy.is_shutdown():
+            for pose in poses:
+                # Define your goal pose here. This is just an example.
+                goal_pose = PoseStamped()
+                goal_pose.pose = pose
 
-            result = move_base_client(goal_pose)
-            if result:
-                rospy.loginfo("Goal execution done!")
-            else:
-                rospy.loginfo("Failed to reach the goal.")
+                result = move_base_client(goal_pose)
+                if result:
+                    rospy.loginfo("Goal execution done!")
+                else:
+                    rospy.loginfo("Failed to reach the goal.")
     except rospy.ROSInterruptException:
         rospy.loginfo("Action client terminated.")
