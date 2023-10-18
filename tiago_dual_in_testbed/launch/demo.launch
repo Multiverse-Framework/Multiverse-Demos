@@ -1,0 +1,23 @@
+<launch>
+
+    <arg name="server_host" default="tcp://127.0.0.1"/>
+    <arg name="server_port" default="7000"/>
+    <arg name="headless" default="true"/>
+
+    <include file="$(find tiago_dual_in_testbed)/launch/mujoco.launch" >
+        <arg name="server_host" value="$(arg server_host)"/>
+        <arg name="server_port" value="$(arg server_port)"/>
+        <arg name="headless" value="$(arg headless)" />
+    </include>
+
+    <include file="$(find tiago_dual_in_testbed)/launch/multiverse_socket.launch">
+        <arg name="delay" value="1" />
+        <arg name="server_host" value="$(arg server_host)"/>
+        <arg name="server_port" value="$(arg server_port)"/>
+    </include>
+
+    <!-- <include file="$(find tiago_dual_control)/launch/tiago_dual_giskard.launch"/> -->
+
+    <include file="$(find tiago_dual_in_testbed)/launch/rviz.launch" />
+
+</launch>

@@ -1,0 +1,47 @@
+mujoco:
+  robots: [tiago_dual]
+
+  joint_inits:
+    arm_left_1_joint: -1.0
+    arm_left_2_joint: 0.0
+    arm_left_3_joint: 1.5
+    arm_left_4_joint: 2.2
+    arm_left_5_joint: -1.5
+    arm_left_6_joint: 0.5
+    arm_left_7_joint: 0.0
+    arm_right_1_joint: -1.0
+    arm_right_2_joint: 0.0
+    arm_right_3_joint: 1.5
+    arm_right_4_joint: 2.2
+    arm_right_5_joint: -1.5
+    arm_right_6_joint: 0.5
+    arm_right_7_joint: 0.0
+    torso_lift_joint: 0.7
+
+  pose_init:
+    tiago_dual: [-1.0, -4.0, 0.0, 0.0, 0.0, 0.0]
+
+  add_odom_joints: true
+
+  spawn_and_destroy_objects_rate: 60.0
+
+  root_frame_id: map
+
+  disable_gravity: true
+
+  max_time_step: 0.004
+
+multiverse:
+  length_unit: m
+  angle_unit: rad
+  force_unit: N
+  time_unit: s
+  handedness: rhs
+  root_frame_id: map
+
+  send:
+    body: ["position", "quaternion"]
+    joint: ["joint_rvalue", "joint_tvalue"]
+
+  receive:
+    tiago_dual: ["relative_velocity"]

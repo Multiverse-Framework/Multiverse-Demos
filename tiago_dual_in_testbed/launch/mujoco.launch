@@ -1,0 +1,40 @@
+<launch>
+
+    <arg name="headless" default="true" />
+    <arg name="server_host" default="tcp://127.0.0.1"/>
+    <arg name="server_port" default="7000"/>
+
+    <group if="$(arg headless)">
+        <include file="$(find mujoco_sim)/launch/mujoco_sim_headless.launch">
+            <arg name="server_host" default="$(arg server_host)"/>
+            <arg name="server_port" default="$(arg server_port)"/>
+            <arg name="config" value="$(find tiago_dual_in_testbed)/config/mujoco_params.yaml" />
+            <arg name="world" value="$(find isr_testbed)/mjcf/isr-testbed.xml" />
+            <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual_tall.urdf" />
+            <arg name="disable_parent_child_collision_level" default="3" />
+            <arg name="use_urdf" value="true" />
+        </include>
+    </group>
+
+    <group unless="$(arg headless)">
+        <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
+            <arg name="server_host" default="$(arg server_host)"/>
+            <arg name="server_port" default="$(arg server_port)"/>
+            <arg name="config" value="$(find tiago_dual_in_testbed)/config/mujoco_params.yaml" />
+            <arg name="world" value="$(find isr_testbed)/mjcf/isr-testbed.xml" />
+            <arg name="robot" value="$(find tiago_dual_description)/urdf/tiago_dual_tall.urdf" />
+            <arg name="disable_parent_child_collision_level" default="3" />
+            <arg name="use_urdf" value="true" />
+        </include>
+    </group>
+
+    <include file="$(find tiago_dual_control)/launch/tiago_dual_control.launch" />
+
+    <param name="testbed_description"
+        command="$(find xacro)/xacro '$(find isr_testbed)/urdf/isr-testbed.urdf'" />
+
+    <include file="$(find tiago_dual_control)/launch/tiago_dual_move_base.launch">
+        <arg name="navigation_map" default="$(find isr_testbed)/map/isr-testbed.yaml" />
+    </include>
+
+</launch>

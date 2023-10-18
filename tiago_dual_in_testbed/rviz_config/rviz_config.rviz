@@ -1,0 +1,1404 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 138
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Grid1/Offset1
+        - /TF1/Frames1
+        - /Path1
+      Splitter Ratio: 0.48690396547317505
+    Tree Height: 847
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 255; 53; 127
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Billboards
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 10
+        Y: 3
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        apple_juice_box__apple_juice__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        aruco_marker_0__aruco_marker_0__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        basmati_rice__basmati_rice__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        bed__bed__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        beer__beer__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cabinet_diamondback__cabinet_diamondback__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cabinet_ikea_galant__cabinet_ikea_galant__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair1__tv_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair2__tv_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair_dinning_room_1__simple_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair_dinning_room_2__simple_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair_kitchen_1__simple_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair_kitchen_2__simple_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chair_kitchen_3__simple_chair__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cone1__Construction Cone__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cone2__Construction Cone__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cone3__Construction Cone__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cone4__Construction Cone__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cup1__plastic_cup__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cup2__plastic_cup__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        dinning_room_table__dinning_room_table__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        human__person_standing__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hydrant1__fire_hydrant__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hydrant2__fire_hydrant__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lamp_ikea_arstid__lamp_ikea_arstid__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        nightstand1__bedroom_nightstand__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        nightstand2__bedroom_nightstand__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pizza_box__pizza_box__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        plant_floor_small__plant_floor_small__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shelf__shelf__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sofa__sofa__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_bedside__table_bedside__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_living_room__table_living_room__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table_outside__cafe_table__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tea_box__tea_box__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tray_blue_white__tray_blue_white__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tree1__pine_tree__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tree2__pine_tree__link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tv__tv__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tv_table__tv_table__link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        wall__wall__Wall_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wall__wall__Wall_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        walls__walls__Door_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_19:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_21:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_22:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_23:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_24:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_25:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_26:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_27:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_36:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_48:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_49:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_50:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_51:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_53:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_58:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_61:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        walls__walls__Wall_63:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wardrobe__wardrobe__base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: TestbedModel
+      Robot Description: testbed_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        arm_left_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_5_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_6_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_left_7_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_left_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_5_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_6_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_right_7_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_right_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_antenna_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_antenna_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_cover_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_mic_back_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_mic_back_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_mic_front_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_mic_front_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_sonar_01_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_sonar_02_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_sonar_03_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_back_left_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_back_left_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_back_right_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_back_right_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_front_left_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_front_left_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_front_right_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster_front_right_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_left_grasping_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        gripper_left_left_finger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_left_right_finger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_left_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        gripper_right_grasping_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        gripper_right_left_finger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_right_right_finger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_right_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        head_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rgbd_laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        suspension_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        suspension_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        torso_fixed_column_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso_fixed_column_link_extern:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso_fixed_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso_lift_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_left_ft_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_left_ft_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_right_ft_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_right_ft_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        xtion_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        xtion_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        xtion_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        xtion_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        xtion_orbbec_aux_joint_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        xtion_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        xtion_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        apple_juice_box__apple_juice__base_link:
+          Value: true
+        arm_left_1_link:
+          Value: true
+        arm_left_2_link:
+          Value: true
+        arm_left_3_link:
+          Value: true
+        arm_left_4_link:
+          Value: true
+        arm_left_5_link:
+          Value: true
+        arm_left_6_link:
+          Value: true
+        arm_left_7_link:
+          Value: true
+        arm_left_tool_link:
+          Value: true
+        arm_right_1_link:
+          Value: true
+        arm_right_2_link:
+          Value: true
+        arm_right_3_link:
+          Value: true
+        arm_right_4_link:
+          Value: true
+        arm_right_5_link:
+          Value: true
+        arm_right_6_link:
+          Value: true
+        arm_right_7_link:
+          Value: true
+        arm_right_tool_link:
+          Value: true
+        aruco_marker_0__aruco_marker_0__link_0:
+          Value: true
+        base_antenna_left_link:
+          Value: true
+        base_antenna_right_link:
+          Value: true
+        base_cover_link:
+          Value: true
+        base_footprint:
+          Value: true
+        base_imu_link:
+          Value: true
+        base_laser_link:
+          Value: true
+        base_link:
+          Value: true
+        base_mic_back_left_link:
+          Value: true
+        base_mic_back_right_link:
+          Value: true
+        base_mic_front_left_link:
+          Value: true
+        base_mic_front_right_link:
+          Value: true
+        base_sonar_01_link:
+          Value: true
+        base_sonar_02_link:
+          Value: true
+        base_sonar_03_link:
+          Value: true
+        basmati_rice__basmati_rice__base_link:
+          Value: true
+        bed__bed__link_0:
+          Value: true
+        beer__beer__link:
+          Value: true
+        cabinet_diamondback__cabinet_diamondback__base_link:
+          Value: true
+        cabinet_ikea_galant__cabinet_ikea_galant__base_link:
+          Value: true
+        caster_back_left_1_link:
+          Value: true
+        caster_back_left_2_link:
+          Value: true
+        caster_back_right_1_link:
+          Value: true
+        caster_back_right_2_link:
+          Value: true
+        caster_front_left_1_link:
+          Value: true
+        caster_front_left_2_link:
+          Value: true
+        caster_front_right_1_link:
+          Value: true
+        caster_front_right_2_link:
+          Value: true
+        chair1__tv_chair__link_0:
+          Value: true
+        chair2__tv_chair__link_0:
+          Value: true
+        chair_dinning_room_1__simple_chair__link_0:
+          Value: true
+        chair_dinning_room_2__simple_chair__link_0:
+          Value: true
+        chair_kitchen_1__simple_chair__link_0:
+          Value: true
+        chair_kitchen_2__simple_chair__link_0:
+          Value: true
+        chair_kitchen_3__simple_chair__link_0:
+          Value: true
+        cone1__Construction Cone__link:
+          Value: true
+        cone2__Construction Cone__link:
+          Value: true
+        cone3__Construction Cone__link:
+          Value: true
+        cone4__Construction Cone__link:
+          Value: true
+        cup1__plastic_cup__link:
+          Value: true
+        cup2__plastic_cup__link:
+          Value: true
+        dinning_room_table__dinning_room_table__base_link:
+          Value: true
+        gripper_left_grasping_frame:
+          Value: true
+        gripper_left_left_finger_link:
+          Value: true
+        gripper_left_link:
+          Value: true
+        gripper_left_right_finger_link:
+          Value: true
+        gripper_left_tool_link:
+          Value: true
+        gripper_right_grasping_frame:
+          Value: true
+        gripper_right_left_finger_link:
+          Value: true
+        gripper_right_link:
+          Value: true
+        gripper_right_right_finger_link:
+          Value: true
+        gripper_right_tool_link:
+          Value: true
+        head_1_link:
+          Value: true
+        head_2_link:
+          Value: true
+        human__person_standing__link:
+          Value: true
+        hydrant1__fire_hydrant__link:
+          Value: true
+        hydrant2__fire_hydrant__link:
+          Value: true
+        lamp_ikea_arstid__lamp_ikea_arstid__base_link:
+          Value: true
+        map:
+          Value: true
+        nightstand1__bedroom_nightstand__link_0:
+          Value: true
+        nightstand2__bedroom_nightstand__link_0:
+          Value: true
+        pizza_box__pizza_box__base_link:
+          Value: true
+        plant_floor_small__plant_floor_small__base_link:
+          Value: true
+        rgbd_laser_link:
+          Value: true
+        shelf__shelf__base_link:
+          Value: true
+        sofa__sofa__link_0:
+          Value: true
+        suspension_left_link:
+          Value: true
+        suspension_right_link:
+          Value: true
+        table_bedside__table_bedside__base_link:
+          Value: true
+        table_living_room__table_living_room__base_link:
+          Value: true
+        table_outside__cafe_table__link:
+          Value: true
+        tea_box__tea_box__base_link:
+          Value: true
+        tiago_dual:
+          Value: true
+        torso_fixed_column_link:
+          Value: true
+        torso_fixed_column_link_extern:
+          Value: true
+        torso_fixed_link:
+          Value: true
+        torso_lift_link:
+          Value: true
+        tray_blue_white__tray_blue_white__base_link:
+          Value: true
+        tree1__pine_tree__link:
+          Value: true
+        tree2__pine_tree__link:
+          Value: true
+        tv__tv__link_0:
+          Value: true
+        tv_table__tv_table__link_0:
+          Value: true
+        wall:
+          Value: true
+        wall__wall__Wall_0:
+          Value: true
+        wall__wall__Wall_2:
+          Value: true
+        walls:
+          Value: true
+        walls__walls__Door_4:
+          Value: true
+        walls__walls__Wall_19:
+          Value: true
+        walls__walls__Wall_21:
+          Value: true
+        walls__walls__Wall_22:
+          Value: true
+        walls__walls__Wall_23:
+          Value: true
+        walls__walls__Wall_24:
+          Value: true
+        walls__walls__Wall_25:
+          Value: true
+        walls__walls__Wall_26:
+          Value: true
+        walls__walls__Wall_27:
+          Value: true
+        walls__walls__Wall_36:
+          Value: true
+        walls__walls__Wall_48:
+          Value: true
+        walls__walls__Wall_49:
+          Value: true
+        walls__walls__Wall_50:
+          Value: true
+        walls__walls__Wall_51:
+          Value: true
+        walls__walls__Wall_53:
+          Value: true
+        walls__walls__Wall_58:
+          Value: true
+        walls__walls__Wall_61:
+          Value: true
+        walls__walls__Wall_63:
+          Value: true
+        wardrobe__wardrobe__base_link:
+          Value: true
+        wheel_left_link:
+          Value: true
+        wheel_right_link:
+          Value: true
+        wrist_left_ft_link:
+          Value: true
+        wrist_left_ft_tool_link:
+          Value: true
+        wrist_right_ft_link:
+          Value: true
+        wrist_right_ft_tool_link:
+          Value: true
+        xtion_depth_frame:
+          Value: true
+        xtion_depth_optical_frame:
+          Value: true
+        xtion_link:
+          Value: true
+        xtion_optical_frame:
+          Value: true
+        xtion_orbbec_aux_joint_frame:
+          Value: true
+        xtion_rgb_frame:
+          Value: true
+        xtion_rgb_optical_frame:
+          Value: true
+      Marker Alpha: 1
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: false
+      Tree:
+        map:
+          apple_juice_box__apple_juice__base_link:
+            {}
+          arm_left_1_link:
+            {}
+          arm_left_2_link:
+            {}
+          arm_left_3_link:
+            {}
+          arm_left_4_link:
+            {}
+          arm_left_5_link:
+            {}
+          arm_left_6_link:
+            {}
+          arm_left_7_link:
+            {}
+          arm_left_tool_link:
+            {}
+          arm_right_1_link:
+            {}
+          arm_right_2_link:
+            {}
+          arm_right_3_link:
+            {}
+          arm_right_4_link:
+            {}
+          arm_right_5_link:
+            {}
+          arm_right_6_link:
+            {}
+          arm_right_7_link:
+            {}
+          arm_right_tool_link:
+            {}
+          aruco_marker_0__aruco_marker_0__link_0:
+            {}
+          base_antenna_left_link:
+            {}
+          base_antenna_right_link:
+            {}
+          base_cover_link:
+            {}
+          base_footprint:
+            {}
+          base_imu_link:
+            {}
+          base_laser_link:
+            {}
+          base_link:
+            {}
+          base_mic_back_left_link:
+            {}
+          base_mic_back_right_link:
+            {}
+          base_mic_front_left_link:
+            {}
+          base_mic_front_right_link:
+            {}
+          base_sonar_01_link:
+            {}
+          base_sonar_02_link:
+            {}
+          base_sonar_03_link:
+            {}
+          basmati_rice__basmati_rice__base_link:
+            {}
+          bed__bed__link_0:
+            {}
+          beer__beer__link:
+            {}
+          cabinet_diamondback__cabinet_diamondback__base_link:
+            {}
+          cabinet_ikea_galant__cabinet_ikea_galant__base_link:
+            {}
+          caster_back_left_1_link:
+            {}
+          caster_back_left_2_link:
+            {}
+          caster_back_right_1_link:
+            {}
+          caster_back_right_2_link:
+            {}
+          caster_front_left_1_link:
+            {}
+          caster_front_left_2_link:
+            {}
+          caster_front_right_1_link:
+            {}
+          caster_front_right_2_link:
+            {}
+          chair1__tv_chair__link_0:
+            {}
+          chair2__tv_chair__link_0:
+            {}
+          chair_dinning_room_1__simple_chair__link_0:
+            {}
+          chair_dinning_room_2__simple_chair__link_0:
+            {}
+          chair_kitchen_1__simple_chair__link_0:
+            {}
+          chair_kitchen_2__simple_chair__link_0:
+            {}
+          chair_kitchen_3__simple_chair__link_0:
+            {}
+          cone1__Construction Cone__link:
+            {}
+          cone2__Construction Cone__link:
+            {}
+          cone3__Construction Cone__link:
+            {}
+          cone4__Construction Cone__link:
+            {}
+          cup1__plastic_cup__link:
+            {}
+          cup2__plastic_cup__link:
+            {}
+          dinning_room_table__dinning_room_table__base_link:
+            {}
+          gripper_left_grasping_frame:
+            {}
+          gripper_left_left_finger_link:
+            {}
+          gripper_left_link:
+            {}
+          gripper_left_right_finger_link:
+            {}
+          gripper_left_tool_link:
+            {}
+          gripper_right_grasping_frame:
+            {}
+          gripper_right_left_finger_link:
+            {}
+          gripper_right_link:
+            {}
+          gripper_right_right_finger_link:
+            {}
+          gripper_right_tool_link:
+            {}
+          head_1_link:
+            {}
+          head_2_link:
+            {}
+          human__person_standing__link:
+            {}
+          hydrant1__fire_hydrant__link:
+            {}
+          hydrant2__fire_hydrant__link:
+            {}
+          lamp_ikea_arstid__lamp_ikea_arstid__base_link:
+            {}
+          nightstand1__bedroom_nightstand__link_0:
+            {}
+          nightstand2__bedroom_nightstand__link_0:
+            {}
+          pizza_box__pizza_box__base_link:
+            {}
+          plant_floor_small__plant_floor_small__base_link:
+            {}
+          rgbd_laser_link:
+            {}
+          shelf__shelf__base_link:
+            {}
+          sofa__sofa__link_0:
+            {}
+          suspension_left_link:
+            {}
+          suspension_right_link:
+            {}
+          table_bedside__table_bedside__base_link:
+            {}
+          table_living_room__table_living_room__base_link:
+            {}
+          table_outside__cafe_table__link:
+            {}
+          tea_box__tea_box__base_link:
+            {}
+          tiago_dual:
+            {}
+          torso_fixed_column_link:
+            {}
+          torso_fixed_column_link_extern:
+            {}
+          torso_fixed_link:
+            {}
+          torso_lift_link:
+            {}
+          tray_blue_white__tray_blue_white__base_link:
+            {}
+          tree1__pine_tree__link:
+            {}
+          tree2__pine_tree__link:
+            {}
+          tv__tv__link_0:
+            {}
+          tv_table__tv_table__link_0:
+            {}
+          wall:
+            {}
+          wall__wall__Wall_0:
+            {}
+          wall__wall__Wall_2:
+            {}
+          walls:
+            {}
+          walls__walls__Door_4:
+            {}
+          walls__walls__Wall_19:
+            {}
+          walls__walls__Wall_21:
+            {}
+          walls__walls__Wall_22:
+            {}
+          walls__walls__Wall_23:
+            {}
+          walls__walls__Wall_24:
+            {}
+          walls__walls__Wall_25:
+            {}
+          walls__walls__Wall_26:
+            {}
+          walls__walls__Wall_27:
+            {}
+          walls__walls__Wall_36:
+            {}
+          walls__walls__Wall_48:
+            {}
+          walls__walls__Wall_49:
+            {}
+          walls__walls__Wall_50:
+            {}
+          walls__walls__Wall_51:
+            {}
+          walls__walls__Wall_53:
+            {}
+          walls__walls__Wall_58:
+            {}
+          walls__walls__Wall_61:
+            {}
+          walls__walls__Wall_63:
+            {}
+          wardrobe__wardrobe__base_link:
+            {}
+          wheel_left_link:
+            {}
+          wheel_right_link:
+            {}
+          wrist_left_ft_link:
+            {}
+          wrist_left_ft_tool_link:
+            {}
+          wrist_right_ft_link:
+            {}
+          wrist_right_ft_tool_link:
+            {}
+          xtion_depth_frame:
+            {}
+          xtion_depth_optical_frame:
+            {}
+          xtion_link:
+            {}
+          xtion_optical_frame:
+            {}
+          xtion_orbbec_aux_joint_frame:
+            {}
+          xtion_rgb_frame:
+            {}
+          xtion_rgb_optical_frame:
+            {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: CostMapGlobal
+      Topic: /move_base/global_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /giskard/visualization_marker_array
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/DWAPlannerROS/global_plan
+      Unreliable: false
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 212; 233; 245
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 17.8360538482666
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 0.47346231341362
+        Y: -0.2898842394351959
+        Z: 0.01786181889474392
+      Focal Shape Fixed Size: false
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 1.4797964096069336
+      Target Frame: <Fixed Frame>
+      Yaw: 4.675424575805664
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: true
+  Height: 1136
+  Hide Left Dock: true
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000048900000416fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000003d00000416000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000015f000003e4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000003e4000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000078000000060fc0100000002fb0000000800540069006d00650000000000000007800000041800fffffffb0000000800540069006d00650100000000000004500000000000000000000007380000041600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1848
+  X: 1992
+  Y: 27

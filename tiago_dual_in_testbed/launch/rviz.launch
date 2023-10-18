@@ -1,0 +1,6 @@
+<launch>
+
+    <node name="rviz" pkg="rviz" type="rviz" required="true"
+        args="-d $(find tiago_dual_in_testbed)/rviz_config/rviz_config.rviz" />
+
+</launch>

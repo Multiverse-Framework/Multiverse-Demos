@@ -1,0 +1,25 @@
+multiverse:
+  length_unit: m
+  angle_unit: rad
+  force_unit: N
+  time_unit: s
+  handedness: rhs
+  root_frame_id: map
+  
+  services:
+    query_data:
+      port: 7400
+
+  publishers:
+    tf:
+      port: 7300
+      rate: 30
+    odom:
+      port: 7301
+      rate: 60
+      body: tiago_dual
+
+  subscribers:
+    cmd_vel:
+      port: 7200
+      body: tiago_dual
