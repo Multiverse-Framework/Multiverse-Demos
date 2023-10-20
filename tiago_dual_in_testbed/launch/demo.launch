@@ -18,6 +18,8 @@
 
     <!-- <include file="$(find tiago_dual_control)/launch/tiago_dual_giskard.launch"/> -->
 
-    <include file="$(find tiago_dual_in_testbed)/launch/rviz.launch" />
+    <group unless="$(arg headless)">
+        <include file="$(find tiago_dual_in_testbed)/launch/rviz.launch" />
+    </group>
 
 </launch>
